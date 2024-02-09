@@ -18,24 +18,24 @@ function readFileData(directory, filename, encoding, cb) {
     }, 2000);
 }
 
-function findingListsOfSpecificBoard(listsData, boardID) {
-    let listsDataOfBoardID = '';
-    
-    if (listsData[boardID]) {
-        for (let list of listsData[boardID]) {
-            for (let info in list) {
-                listsDataOfBoardID += `${info}: ${list[info]} `;
+function findingCardsOfSpecificList(cardsData, listID) {
+    let cardsDataOfListID = '';
+
+    if (cardsData[listID]) {
+        for (let card of cardsData[listID]) {
+            for (let info in card) {
+                cardsDataOfListID += `${info}: ${card[info]}\n`;
             }
 
-            listsDataOfBoardID += '\n';
+            cardsDataOfListID += '\n';
         }
     } else {
-        listsDataOfBoardID = 'N.A.'
+        cardsDataOfListID = 'N.A.'
     }
 
-    return listsDataOfBoardID;
+    return cardsDataOfListID;
 }
 
 module.exports = {
-    readFileData, findingListsOfSpecificBoard
+    readFileData, findingCardsOfSpecificList
 }
