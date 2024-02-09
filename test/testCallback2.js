@@ -1,5 +1,5 @@
 const {
-    readFileData, printListsOfSpecificBoard
+    readFileData, findingListsOfSpecificBoard
 } = require('../callback2.cjs');
 
 const directory = 'data';
@@ -9,5 +9,5 @@ const boardID = 'mcu453ed';
 
 readFileData(directory, filename, encoding, (listData) => {
     console.log(`Lists of board with id = ${boardID}: -`);
-    printListsOfSpecificBoard(listData, boardID);
+    return findingListsOfSpecificBoard(listData, boardID);
 })

@@ -8,7 +8,8 @@ function readFileData(directory, filename, encoding, cb) {
                 throw err;
             } else {
                 if (typeof cb === 'function') {
-                    cb(JSON.parse(data));
+                    let requiredData = cb(JSON.parse(data));
+                    console.log(requiredData);
                 } else {
                     console.log(data);
                 }
@@ -17,21 +18,23 @@ function readFileData(directory, filename, encoding, cb) {
     }, 2000);
 }
 
-function printBoardInformation(boardsData, boardID) {
-    setTimeout(() => {
-        for (let board of boardsData) {
-            if (board.id === boardID) {
-                for (let info in board) {
-                    if (!board[info] || Object.keys(board[info]).length === 0) {
-                        board[info] = 'NA';
-                    }
-                    console.log(`${info}: ${board[info]}`);
+function findingBoardInformation(boardsData, boardID) {
+    let boardInfo = "";
+
+    for (let board of boardsData) {
+        if (board.id === boardID) {
+            for (let info in board) {
+                if (!board[info] || Object.keys(board[info]).length === 0) {
+                    board[info] = 'NA';
                 }
+                boardInfo = boardInfo.concat(`${info}: ${board[info]}\n`);
             }
         }
-    }, 2000)
+    }
+
+    return boardInfo;
 }
 
 module.exports = {
-    readFileData, printBoardInformation
+    readFileData, findingBoardInformation
 }

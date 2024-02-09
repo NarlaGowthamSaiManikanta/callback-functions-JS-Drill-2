@@ -1,5 +1,5 @@
 const {
-    readFileData, printBoardInformation
+    readFileData, findingBoardInformation
 } = require('../callback1.cjs');
 
 const directory = 'data';
@@ -9,5 +9,5 @@ const boardID = 'mcu453ed';
 
 readFileData(directory, filename, encoding, (boardsData) => {
     console.log("Board's Info :- ");
-    printBoardInformation(boardsData, boardID);
+    return findingBoardInformation(boardsData, boardID);
 });
