@@ -9,5 +9,5 @@ const boardID = 'mcu453ed';
 
 readFileData(directory, filename, encoding, (boardsData) => {
     console.log("Board's Info :- ");
-    return findingBoardInformation(boardsData, boardID);
+    return findingBoardInformation(boardsData, "id", boardID);
 });

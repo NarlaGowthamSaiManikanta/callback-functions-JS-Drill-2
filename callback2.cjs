@@ -9,7 +9,11 @@ function readFileData(directory, filename, encoding, cb) {
             } else {
                 if (typeof cb === 'function') {
                     let requiredData = cb(JSON.parse(data));
-                    console.log(requiredData);
+                    if (requiredData) {
+                        console.log(requiredData);
+                    } else {
+                        console.log('Return the appropiate data to function.');
+                    }
                 } else {
                     console.log(data);
                 }
@@ -19,21 +23,11 @@ function readFileData(directory, filename, encoding, cb) {
 }
 
 function findingListsOfSpecificBoard(listsData, boardID) {
-    let listsDataOfBoardID = '';
-    
     if (listsData[boardID]) {
-        for (let list of listsData[boardID]) {
-            for (let info in list) {
-                listsDataOfBoardID += `${info}: ${list[info]} `;
-            }
-
-            listsDataOfBoardID += '\n';
-        }
+        return listsData[boardID];
     } else {
-        listsDataOfBoardID = 'N.A.'
+        return 'N.A.';
     }
-
-    return listsDataOfBoardID;
 }
 
 module.exports = {

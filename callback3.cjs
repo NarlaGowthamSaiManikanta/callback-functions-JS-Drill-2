@@ -9,7 +9,11 @@ function readFileData(directory, filename, encoding, cb) {
             } else {
                 if (typeof cb === 'function') {
                     let requiredData = cb(JSON.parse(data));
-                    console.log(requiredData);
+                    if (requiredData) {
+                        console.log(requiredData);
+                    } else {
+                        console.log('Return the appropiate data to function.');
+                    }
                 } else {
                     console.log(data);
                 }
