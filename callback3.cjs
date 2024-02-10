@@ -23,21 +23,11 @@ function readFileData(directory, filename, encoding, cb) {
 }
 
 function findingCardsOfSpecificList(cardsData, listID) {
-    let cardsDataOfListID = '';
-
     if (cardsData[listID]) {
-        for (let card of cardsData[listID]) {
-            for (let info in card) {
-                cardsDataOfListID += `${info}: ${card[info]}\n`;
-            }
-
-            cardsDataOfListID += '\n';
-        }
+        return cardsData[listID];
     } else {
-        cardsDataOfListID = 'N.A.'
+        return 'N.A.'
     }
-
-    return cardsDataOfListID;
 }
 
 module.exports = {
