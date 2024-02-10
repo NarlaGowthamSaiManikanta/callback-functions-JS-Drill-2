@@ -1,12 +1,12 @@
 const findingBoardInformation = require('../callback1.cjs');
 
 const directory = 'data';
-const filename = 'boards_1.json';
+const boardsFilename = 'boards_1.json';
 const encoding = 'utf-8';
-const property = 'id';
-const value = 'mcu453ed';
+const boardProperty = 'id';
+const boardValue = 'mcu453ed';
 
-findingBoardInformation({directory, filename, encoding, property, value})
+findingBoardInformation({ directory, boardsFilename, encoding, boardProperty, boardValue })
     .then((board) => {
         console.log(board);
     })

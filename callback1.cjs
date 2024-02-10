@@ -4,14 +4,14 @@ function findingBoardInformation(data) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             try {
-                let filePath = `${data.directory}/${data.filename}`;
+                let filePath = `${data.directory}/${data.boardsFilename}`;
 
                 fs.readFile(filePath, data.encoding, (err, boards) => {
                     if (err) {
                         throw err;
                     } else {
                         for (let board of JSON.parse(boards)) {
-                            if (board[data.property] === data.value) {
+                            if (board[data.boardProperty] === data.boardValue) {
                                 resolve(board);
                             }
                         }
