@@ -23,7 +23,23 @@
         └── .gitignore
 
 ## Problem Description
-Using promises and the fs module's asynchronous functions, do the following:
+Each function that you write must take at least 2s to execute using the setTimeout function like so:
+
+```JS
+   function() {
+		setTimeout(() => {
+			// Your code here
+		}, 2 * 1000);
+	}
+   ```
+
+OPTIONAL: You may randomize the time to make things more interesting.
+
+How the given data is associated:
+- Boards have ids and names
+- Lists belong to boards
+- Cards belong to lists
+
 
 #### Problem 1: 
 Write a function that will return a particular board's information based on the boardID that is passed from the given list of boards in boards.json and then pass control back to the code that called it by using a callback function.
@@ -86,12 +102,24 @@ nvm install --lts
 * As there are no packages used in this project, we can proceed with the running part.
 
 #### To run the JavaScript file, use the following command:
-```
+```bash
 # For problem -1:
-node test/testProblem1.js
+node test/testCallback1.js
 
 # For problem -2:
-node test/testProblem2.js
+node test/testCallback2.js
+
+# For problem -3:
+node test/testCallback3.js
+
+# For problem -4:
+node test/testCallback4.js
+
+# For problem -5:
+node test/testCallback5.js
+
+# For problem -6:
+node test/testCallback6.js
 ```
 
 You will be getting the output in the terminal.
