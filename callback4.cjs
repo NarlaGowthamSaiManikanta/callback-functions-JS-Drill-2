@@ -4,7 +4,7 @@ const findingListCards = require('./callback3.cjs');
 
 function findingThanosBoardInfoListsAndMindList(data) {
     return new Promise((resolve, reject) => {
-        // setTimeout(() => {
+        setTimeout(() => {
             findingBoardInformation(data)
                 .then((board) => {
                     data.thanosBoardInfo = board;
@@ -13,7 +13,7 @@ function findingThanosBoardInfoListsAndMindList(data) {
                 })
                 .then((lists) => {
                     data.thanosBoardLists = lists;
-                
+
                     for (let list of lists) {
                         if (list.name === "Mind") {
                             data.listID = list.id;
@@ -28,7 +28,7 @@ function findingThanosBoardInfoListsAndMindList(data) {
                 .catch((rejectedReason) => {
                     reject(rejectedReason);
                 });
-        // }, 2 * 1000);
+        }, 2 * 1000);
     });
 }
 
