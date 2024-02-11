@@ -16,7 +16,7 @@ function findingThanosBoardInfoListsAndMindList(data) {
 
                     for (let list of lists) {
                         if (list.name === "Mind") {
-                            data.listID = list.id;
+                            data.listIDs = [list.id];
                             return findingListCards(data);
                         }
                     }

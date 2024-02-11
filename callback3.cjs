@@ -11,12 +11,17 @@ function findingListCards(data) {
                         throw err;
                     } else {
                         cards = JSON.parse(cards);
+                        let listVsCards = {};
                         
-                        if (cards[data.listID]) {
-                            resolve(cards[data.listID]);
-                        } else {
-                            reject(`Cards of List(${listID}) are not available.`);
+                        for (let listID of data.listIDs) {
+                            if (cards[listID]) {
+                                listVsCards[listID] = cards[listID];
+                            } else {
+                                listVsCards[listID] = "N.A";
+                            }
                         }
+
+                        resolve(listVsCards);                        
                     }
                 });
             } catch (error) {
